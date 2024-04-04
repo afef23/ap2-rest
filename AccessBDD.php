@@ -67,7 +67,7 @@ class AccessBDD {
                 case "exemplaire" :
                     return $this->selectExemplairesRevue($champs['id']);
                 case "commandedocument":
-                    return $this->selectCommandesDocument($champs['idLivreDvd']);
+                    return $this->selectCommandesDocument($champs['id']);
                 case "utilisateur":
                     return $this->selectUtilisateur($champs);
                 default:                    
