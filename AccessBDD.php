@@ -66,6 +66,10 @@ class AccessBDD {
             switch($table){
                 case "exemplaire" :
                     return $this->selectExemplairesRevue($champs['id']);
+                case "commandedocument":
+                    return $this->selectCommandesDocument($champs['idLivreDvd']);
+                case "utilisateur":
+                    return $this->selectUtilisateur($champs);
                 default:                    
                     // cas d'un select sur une table avec recherche sur des champs
                     return $this->selectTableOnConditons($table, $champs);					
@@ -245,5 +249,32 @@ class AccessBDD {
             return null;
         }
     }
+
+    public function selectCommandesDocument($idLivreDvd){
+
+        $param = array("idLivreDvd" => $idLivreDvd);
+        
+        $req = "SELECT CD.id, C.dateCommande,C.montant,CD.nbExemplaire,CD.idLivreDvd, ";
+        $req .= "CD.idsuivi,S.etat FROM commandedocument CD JOIN commande C ON CD.id=C.id ";
+        $req .= "JOIN suivi S on CD.suivi=S.id WHERE CD.idLivreDvd = :idLivreDvd ORDER BY C.dateCommande DESC";
+        return $this->conn->query($req,$param);
+    }
+
+    public function selectUtilisateur($champs){
+
+        $param = array(
+            "mail" => $champs["mail"],
+            "password" => $champs["password"]
+        );
+    
+        $sql = "SELECT U.id, U.nom, U.prenom, U.mail, U.idservice, S.libelle ";
+        $sql .= "FROM utilisateur AS U JOIN service AS S ON U.idservice = S.id ";
+        $sql .= "WHERE U.mail = :mail AND U.password = :password";
+    
+        var_dump($sql, $param);
+        return $this->conn->query($sql, $param);
+    }
+    
+
 
 }
