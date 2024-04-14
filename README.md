@@ -1,6 +1,5 @@
 # rest_mediatekdocuments
 Cette API est utilisée par l'application MediatekDocuments écrite en C# et récupérable dans le dépôt suivant :<br>
-https://github.com/Gotlub/MediatekDocuments<br>
 
 ## Présentation
 
