@@ -20,4 +20,4 @@ Cette API contient les fichiers suivants :<br>
 Pour tester l'application MediatekDocuments en local, il faut aussi installer l'API. Voici le mode opératoire :<br>
 - Installer les outils nécessaires (WampServer ou équivalent, Netbeans ou équivalent, Postman pour les tests).<br>
 - Télécharger le zip du code de l'API et le dézipper dans le dossier www de wampserver (renommer le dossier en "rest_mediatekdocuments", donc en enlevant "_master").<br>
-- Récupérer la bdd en racine du projet puis, avec phpMyAdmin, créer la BDD mediatek86 et, dans cette BDD, exécuter le script pour remplir la BDD.<br>
+- Récupérer la bdd.sql en racine du projet puis, avec phpMyAdmin, créer la BDD mediatek86 et, dans cette BDD, importer le script pour remplir la BDD.<br>
